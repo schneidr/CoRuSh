@@ -1,0 +1,12 @@
+[package]
+name = "corush"
+version = "0.1.0"
+# edition = "2021"
+authors = [
+    "Gerald Schneider <gerald@schneidr.de>",
+]
+description = "A basic shell written for learning purposes."
+license = "MIT"
+
+[dependencies]
+termion = "*"
