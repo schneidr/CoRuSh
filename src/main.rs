@@ -11,7 +11,7 @@ fn main() {
 
     writeln!(
         stdout,
-        "{}{}^c to exit. Type stuff, use alt, and so on.",
+        "{}{}CoRuSH - ^c to exit.\r",
         termion::clear::All,
         termion::cursor::Goto(1, 1)
     )
@@ -37,15 +37,20 @@ fn main() {
 */
         match k.as_ref().unwrap() {
             Key::Ctrl('c') => break,
+            Key::Char('\n') => {
+                println!();
+                // run command
+                print!("\r > ");
+            }
             Key::Char(c) => print!("{}", c),
-            Key::Alt(c) => println!("*{}", c),
-            Key::Ctrl(c) => println!("^{}", c),
-            Key::Esc => println!("ESC"),
-            Key::Left => println!("←"),
-            Key::Right => println!("→"),
-            Key::Up => println!("↑"),
-            Key::Down => println!("↓"),
-            Key::Backspace => println!("×"),
+            // Key::Alt(c) => println!("*{}", c),
+            // Key::Ctrl(c) => println!("^{}", c),
+            // Key::Esc => println!("ESC"),
+            // Key::Left => println!("←"),
+            // Key::Right => println!("→"),
+            // Key::Up => println!("↑"),
+            // Key::Down => println!("↓"),
+            // Key::Backspace => println!("×"),
             _ => {
                 println!("{:?}", k)
             }
